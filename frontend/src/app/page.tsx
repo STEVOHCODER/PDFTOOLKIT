@@ -6,18 +6,19 @@ import Link from 'next/link';
 
 export default function Home() {
   const [backendStatus, setBackendStatus] = useState<'checking' | 'online' | 'offline'>('checking');
+  const [currentApiUrl, setCurrentApiUrl] = useState('');
 
   useEffect(() => {
     let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-    // Cleanup: remove trailing slash if user added it in Railway UI
-    if (apiUrl.endsWith('/')) {
-      apiUrl = apiUrl.slice(0, -1);
-    }
+    if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+    setCurrentApiUrl(apiUrl);
     
+    console.log("Telemetry: Connecting to", apiUrl);
+
     fetch(`${apiUrl}/`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
       .catch((err) => {
-        console.error("Backend Connection Failed:", err);
+        console.error("Link Failure:", err);
         setBackendStatus('offline');
       });
     
@@ -125,11 +126,14 @@ export default function Home() {
           </div>
           
           <div className="flex items-center space-x-3 md:space-x-6">
-            <div className={`hidden lg:flex items-center space-x-2 px-3 py-1 rounded-full border ${
-              backendStatus === 'online' ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400' : 'border-rose-500/20 bg-rose-500/10 text-rose-400'
-            }`}>
-              <div className={`w-2 h-2 rounded-full animate-pulse ${backendStatus === 'online' ? 'bg-emerald-500' : 'bg-rose-500'}`}></div>
-              <span className="text-[10px] font-black uppercase tracking-widest">{backendStatus}</span>
+            <div className={`hidden lg:flex flex-col items-end`}>
+              <div className={`flex items-center space-x-2 px-3 py-1 rounded-full border ${
+                backendStatus === 'online' ? 'border-emerald-500/20 bg-emerald-500/10 text-emerald-400' : 'border-rose-500/20 bg-rose-500/10 text-rose-400'
+              }`}>
+                <div className={`w-2 h-2 rounded-full animate-pulse ${backendStatus === 'online' ? 'bg-emerald-500' : 'bg-rose-500'}`}></div>
+                <span className="text-[10px] font-black uppercase tracking-widest">{backendStatus}</span>
+              </div>
+              <span className="text-[6px] font-black text-white/20 mt-1 uppercase truncate max-w-[100px]">{currentApiUrl}</span>
             </div>
             
             <Link href="/admin" className="group relative">
