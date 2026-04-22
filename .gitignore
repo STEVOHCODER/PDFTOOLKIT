@@ -1,0 +1,13 @@
+# Next.js
+frontend/.next/
+frontend/node_modules/
+
+# Python
+backend/__pycache__/
+backend/stats.db
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
