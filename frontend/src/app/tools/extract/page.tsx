@@ -55,7 +55,7 @@ export default function ExtractTool() {
   const downloadCSV = () => {
     if (!result) return;
     
-    let csvRows = [];
+    let csvRows: string[] = [];
     
     result.pages.forEach((page: any) => {
       csvRows.push(`PAGE ${page.page}`);
