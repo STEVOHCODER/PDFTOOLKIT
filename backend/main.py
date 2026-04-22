@@ -18,16 +18,23 @@ import pikepdf
 import sqlite3
 from datetime import datetime
 from fastapi.middleware.gzip import GZipMiddleware
-
 app = FastAPI()
 app.add_middleware(GZipMiddleware, minimum_size=500)
+
+# Robust CORS for Railway Monorepos
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"]
 )
+
+@app.get("/api/health")
+def health_check():
+    return {"status": "online"}
+
+@app.get("/")
 
 UPLOAD_DIR = os.path.join(os.getcwd(), "uploads")
 DB_PATH = os.path.join(os.getcwd(), "stats.db")

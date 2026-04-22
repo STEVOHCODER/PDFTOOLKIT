@@ -15,7 +15,7 @@ export default function Home() {
     
     console.log("Telemetry: Connecting to", apiUrl);
 
-    fetch(`${apiUrl}/`)
+    fetch(`${apiUrl}/api/health`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
       .catch((err) => {
         console.error("Link Failure:", err);
