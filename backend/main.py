@@ -34,8 +34,6 @@ app.add_middleware(
 def health_check():
     return {"status": "online"}
 
-@app.get("/")
-
 UPLOAD_DIR = os.path.join(os.getcwd(), "uploads")
 DB_PATH = os.path.join(os.getcwd(), "stats.db")
 
