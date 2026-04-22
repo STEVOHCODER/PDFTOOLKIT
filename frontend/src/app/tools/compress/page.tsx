@@ -23,7 +23,11 @@ export default function CompressTool() {
   }, [loading]);
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+    
+    console.log("Connecting to Neural Engine at:", apiUrl);
+
     fetch(`${apiUrl}/`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
       .catch(() => setBackendStatus('offline'));
@@ -36,7 +40,9 @@ export default function CompressTool() {
     formData.append('file', file);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+      
       const response = await fetch(`${apiUrl}/api/compress`, {
         method: 'POST',
         body: formData,

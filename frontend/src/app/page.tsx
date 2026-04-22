@@ -8,12 +8,19 @@ export default function Home() {
   const [backendStatus, setBackendStatus] = useState<'checking' | 'online' | 'offline'>('checking');
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    // Cleanup: remove trailing slash if user added it in Railway UI
+    if (apiUrl.endsWith('/')) {
+      apiUrl = apiUrl.slice(0, -1);
+    }
+    
     fetch(`${apiUrl}/`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
-      .catch(() => setBackendStatus('offline'));
+      .catch((err) => {
+        console.error("Backend Connection Failed:", err);
+        setBackendStatus('offline');
+      });
     
-    // Track visit
     fetch(`${apiUrl}/api/track/visit`).catch(() => {});
   }, []);
 

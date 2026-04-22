@@ -23,7 +23,11 @@ export default function MergeTool() {
   }, [loading]);
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+    
+    console.log("Connecting to Neural Engine at:", apiUrl);
+
     fetch(`${apiUrl}/`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
       .catch(() => setBackendStatus('offline'));

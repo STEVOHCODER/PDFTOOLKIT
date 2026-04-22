@@ -11,7 +11,11 @@ export default function SplitTool() {
   const [backendStatus, setBackendStatus] = useState<'checking' | 'online' | 'offline'>('checking');
 
   useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+    
+    console.log("Connecting to Neural Engine at:", apiUrl);
+
     fetch(`${apiUrl}/`)
       .then(res => res.ok ? setBackendStatus('online') : setBackendStatus('offline'))
       .catch(() => setBackendStatus('offline'));
@@ -25,7 +29,9 @@ export default function SplitTool() {
     formData.append('ranges', ranges);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      let apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      if (apiUrl.endsWith('/')) apiUrl = apiUrl.slice(0, -1);
+
       const response = await fetch(`${apiUrl}/api/split`, { method: 'POST', body: formData });
       if (response.ok) {
         const blob = await response.blob();
