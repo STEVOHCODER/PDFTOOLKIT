@@ -19,7 +19,7 @@ const AdBanner: React.FC<AdBannerProps> = ({
   slot, 
   format = 'auto', 
   className = '',
-  client = 'ca-pub-XXXXXXXXXXXXXXXX' 
+  client = '<meta name="google-adsense-account" content="ca-pub-5202519329050813">' 
 }) => {
   const adRef = useRef<HTMLModElement>(null);
 
