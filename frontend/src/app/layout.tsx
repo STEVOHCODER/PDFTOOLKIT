@@ -1,4 +1,15 @@
-import Script from 'next/script';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Script from "next/script";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Smart PDF Pro | Free Deep Scan & PDF Utilities",
+  description:
+    "Advanced PDF tools: Merge, Split, Image to PDF, and Deep Data Extraction.",
+};
 
 export default function RootLayout({
   children,
@@ -6,12 +17,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full bg-[#0a0c10]" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
-        <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-      </head>
-      <body className={`${inter.className} min-h-full flex flex-col bg-[#0a0c10] text-slate-200 selection:bg-blue-500/30`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className}`}>
         
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5202519329050813"
