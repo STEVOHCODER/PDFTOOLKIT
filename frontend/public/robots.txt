@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://smartpdfpro.app/sitemap.xml
+
+Sitemap: https://mediatoolkit.tech/sitemap.xml
