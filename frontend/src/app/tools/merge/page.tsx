@@ -86,7 +86,7 @@ export default function MergeTool() {
             <Link href="/" className="p-2 hover:bg-white/5 rounded-full transition-colors group">
               <svg className="w-6 h-6 text-white group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
             </Link>
-            <h1 className="text-sm font-black uppercase tracking-[0.3em] text-blue-500">Merge PDF</h1>
+            <div className="text-sm font-black uppercase tracking-[0.3em] text-blue-500">Merge PDF</div>
           </div>
           <div className="px-3 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-[10px] font-black uppercase tracking-widest text-blue-400">
              {backendStatus}
@@ -99,7 +99,7 @@ export default function MergeTool() {
 
         <div className="backdrop-blur-3xl bg-white/[0.02] border border-white/10 rounded-[48px] p-12 shadow-2xl relative overflow-hidden">
           <div className="text-center mb-12">
-            <h2 className="text-5xl font-black text-white mb-4 tracking-tighter">Unified Documents</h2>
+            <h1 className="text-5xl font-black text-white mb-4 tracking-tighter">Unified Documents</h1>
             <p className="text-slate-500 font-medium">Merge multiple PDF layers into a single, high-fidelity master file.</p>
           </div>
 

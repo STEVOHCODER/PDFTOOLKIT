@@ -118,9 +118,9 @@ export default function Home() {
               <span className="text-lg md:text-xl">📄</span>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-lg md:text-xl font-black tracking-tighter bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent leading-none">
+              <h2 className="text-lg md:text-xl font-black tracking-tighter bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent leading-none">
                 SMART PDF <span className="text-blue-500">PRO</span>
-              </h1>
+              </h2>
               <span className="hidden md:block text-[8px] font-black uppercase tracking-[0.3em] text-blue-500/50 mt-1">Enterprise Neural Suite</span>
             </div>
           </div>
@@ -156,10 +156,10 @@ export default function Home() {
         <AdBanner slot="home-top" className="mb-8 md:mb-12 mx-auto w-full max-w-[728px] h-[60px] md:h-[90px] rounded-2xl border border-white/5" />
 
         <section className="mb-12 md:mb-16">
-          <h2 className="text-4xl md:text-8xl font-black tracking-tight text-white mb-6 uppercase italic leading-[1.1]">
+          <h1 className="text-4xl md:text-8xl font-black tracking-tight text-white mb-6 uppercase italic leading-[1.1]">
             Smart PDF <br />
             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Professional.</span>
-          </h2>
+          </h1>
           <p className="text-slate-400 text-sm md:text-xl font-medium max-w-2xl mx-auto mb-10 px-4">
             The world's most advanced neural processing suite for ultra-fast PDF manipulation and deep data extraction.
           </p>

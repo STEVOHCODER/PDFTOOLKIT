@@ -93,7 +93,7 @@ export default function ExtractTool() {
             <Link href="/" className="p-2 hover:bg-white/5 rounded-full transition-colors group">
               <svg className="w-6 h-6 text-white group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
             </Link>
-            <h1 className="text-sm font-black uppercase tracking-[0.3em] text-emerald-500">AI Table Extractor</h1>
+            <div className="text-sm font-black uppercase tracking-[0.3em] text-emerald-500">AI Table Extractor</div>
           </div>
           <div className="hidden md:flex gap-4">
              <div className="px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-[10px] font-black uppercase tracking-widest text-emerald-400">
@@ -108,7 +108,7 @@ export default function ExtractTool() {
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500 to-transparent opacity-50"></div>
           
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-white mb-4 tracking-tighter">Neural Scan Protocol</h2>
+            <h1 className="text-5xl font-black text-white mb-4 tracking-tighter">Neural Scan Protocol</h1>
             <p className="text-slate-500 font-medium text-lg">Converting unstructured PDF fragments into high-fidelity datasets.</p>
           </div>
 
