@@ -29,12 +29,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <link rel="preconnect" href="https://googleads.g.doubleclick.net" />
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-          crossOrigin="anonymous"
-          strategy="lazyOnload"
-        />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5202519329050813"
+     crossorigin="anonymous"></script>
       </head>
       <body className={`${inter.className} min-h-full flex flex-col bg-[#0a0c10] text-slate-200 selection:bg-blue-500/30`}>
         {children}
